@@ -27,7 +27,6 @@ public class InfoController {
 	@Autowired
 	private WebSiteService webSiteService;
 	
-	
 	@RequestMapping("info")
     public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model,WebSite record) {
