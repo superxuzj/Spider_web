@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.superx.spider.repository.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.superx.spider.entity.Record" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="METHOD_NAME" property="methodName" jdbcType="VARCHAR" />
+    <result column="TOTAL_SIZE" property="totalSize" jdbcType="VARCHAR" />
+    <result column="GET_IP" property="getIp" jdbcType="VARCHAR" />
+    <result column="CREATOR_TIME" property="creatorTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, METHOD_NAME, TOTAL_SIZE, GET_IP, CREATOR_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_record
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_record
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.superx.spider.entity.Record" >
+    insert into t_record (ID, METHOD_NAME, TOTAL_SIZE, 
+      GET_IP, CREATOR_TIME)
+    values (#{id,jdbcType=INTEGER}, #{methodName,jdbcType=VARCHAR}, #{totalSize,jdbcType=VARCHAR}, 
+      #{getIp,jdbcType=VARCHAR}, #{creatorTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.superx.spider.entity.Record" >
+    insert into t_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="methodName != null" >
+        METHOD_NAME,
+      </if>
+      <if test="totalSize != null" >
+        TOTAL_SIZE,
+      </if>
+      <if test="getIp != null" >
+        GET_IP,
+      </if>
+      <if test="creatorTime != null" >
+        CREATOR_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="methodName != null" >
+        #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalSize != null" >
+        #{totalSize,jdbcType=VARCHAR},
+      </if>
+      <if test="getIp != null" >
+        #{getIp,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorTime != null" >
+        #{creatorTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.superx.spider.entity.Record" >
+    update t_record
+    <set >
+      <if test="methodName != null" >
+        METHOD_NAME = #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalSize != null" >
+        TOTAL_SIZE = #{totalSize,jdbcType=VARCHAR},
+      </if>
+      <if test="getIp != null" >
+        GET_IP = #{getIp,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorTime != null" >
+        CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.superx.spider.entity.Record" >
+    update t_record
+    set METHOD_NAME = #{methodName,jdbcType=VARCHAR},
+      TOTAL_SIZE = #{totalSize,jdbcType=VARCHAR},
+      GET_IP = #{getIp,jdbcType=VARCHAR},
+      CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

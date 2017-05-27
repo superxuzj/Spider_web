@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.superx.spider.repository.LinksMapper" >
+  <resultMap id="BaseResultMap" type="com.superx.spider.entity.Links" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="WEB_ID" property="webId" jdbcType="INTEGER" />
+    <result column="SHORTLINK" property="shortlink" jdbcType="VARCHAR" />
+    <result column="LINK" property="link" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="AUTHOR" property="author" jdbcType="VARCHAR" />
+    <result column="SOURCE" property="source" jdbcType="VARCHAR" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="IDENT" property="ident" jdbcType="VARCHAR" />
+    <result column="CREATOR_NAME" property="creatorName" jdbcType="VARCHAR" />
+    <result column="CREATOR_TIME" property="creatorTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.superx.spider.entity.LinksWithBLOBs" extends="BaseResultMap" >
+    <result column="CONTENT" property="content" jdbcType="LONGVARCHAR" />
+    <result column="SENDCONTENT" property="sendcontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, WEB_ID, SHORTLINK, LINK, TITLE, AUTHOR, SOURCE, TIME, STATUS, TYPE, IDENT, CREATOR_NAME, 
+    CREATOR_TIME
+  </sql>
+  <sql id="Blob_Column_List" >
+    CONTENT, SENDCONTENT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_links
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_links
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.superx.spider.entity.LinksWithBLOBs" >
+    insert into t_links (ID, WEB_ID, SHORTLINK, 
+      LINK, TITLE, AUTHOR, 
+      SOURCE, TIME, STATUS, 
+      TYPE, IDENT, CREATOR_NAME, 
+      CREATOR_TIME, CONTENT, SENDCONTENT
+      )
+    values (#{id,jdbcType=INTEGER}, #{webId,jdbcType=INTEGER}, #{shortlink,jdbcType=VARCHAR}, 
+      #{link,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{ident,jdbcType=VARCHAR}, #{creatorName,jdbcType=VARCHAR}, 
+      #{creatorTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}, #{sendcontent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.superx.spider.entity.LinksWithBLOBs" >
+    insert into t_links
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="webId != null" >
+        WEB_ID,
+      </if>
+      <if test="shortlink != null" >
+        SHORTLINK,
+      </if>
+      <if test="link != null" >
+        LINK,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="author != null" >
+        AUTHOR,
+      </if>
+      <if test="source != null" >
+        SOURCE,
+      </if>
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="ident != null" >
+        IDENT,
+      </if>
+      <if test="creatorName != null" >
+        CREATOR_NAME,
+      </if>
+      <if test="creatorTime != null" >
+        CREATOR_TIME,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="sendcontent != null" >
+        SENDCONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="webId != null" >
+        #{webId,jdbcType=INTEGER},
+      </if>
+      <if test="shortlink != null" >
+        #{shortlink,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="ident != null" >
+        #{ident,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorName != null" >
+        #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorTime != null" >
+        #{creatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sendcontent != null" >
+        #{sendcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.superx.spider.entity.LinksWithBLOBs" >
+    update t_links
+    <set >
+      <if test="webId != null" >
+        WEB_ID = #{webId,jdbcType=INTEGER},
+      </if>
+      <if test="shortlink != null" >
+        SHORTLINK = #{shortlink,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        LINK = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        AUTHOR = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        TIME = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="ident != null" >
+        IDENT = #{ident,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorName != null" >
+        CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorTime != null" >
+        CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sendcontent != null" >
+        SENDCONTENT = #{sendcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.superx.spider.entity.LinksWithBLOBs" >
+    update t_links
+    set WEB_ID = #{webId,jdbcType=INTEGER},
+      SHORTLINK = #{shortlink,jdbcType=VARCHAR},
+      LINK = #{link,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      AUTHOR = #{author,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      IDENT = #{ident,jdbcType=VARCHAR},
+      CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP},
+      CONTENT = #{content,jdbcType=LONGVARCHAR},
+      SENDCONTENT = #{sendcontent,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.superx.spider.entity.Links" >
+    update t_links
+    set WEB_ID = #{webId,jdbcType=INTEGER},
+      SHORTLINK = #{shortlink,jdbcType=VARCHAR},
+      LINK = #{link,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      AUTHOR = #{author,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      IDENT = #{ident,jdbcType=VARCHAR},
+      CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+	<select id="selectLinksList" resultMap="BaseResultMap"
+		parameterType="com.superx.spider.entity.Links">
+		select
+		<include refid="Base_Column_List" />
+		from t_links
+		<where>
+			<if test="webId != null and webId!=''">
+				AND WEB_ID = #{webId,jdbcType=INTEGER}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectLinksWithBLOBsList" resultMap="ResultMapWithBLOBs"
+		parameterType="com.superx.spider.entity.Links">
+		select
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		from t_links
+		<where>
+			<if test="webId != null and webId!=''">
+				AND WEB_ID = #{webId,jdbcType=INTEGER}
+			</if>
+		</where>
+	</select>
+</mapper>

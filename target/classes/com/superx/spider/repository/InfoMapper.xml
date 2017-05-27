@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.superx.spider.repository.InfoMapper" >
+  <resultMap id="BaseResultMap" type="com.superx.spider.entity.Info" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PROVINCE_CODE" property="provinceCode" jdbcType="VARCHAR" />
+    <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+    <result column="LINK" property="link" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="AUTHOR" property="author" jdbcType="VARCHAR" />
+    <result column="SOURCE" property="source" jdbcType="VARCHAR" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="IDENT" property="ident" jdbcType="VARCHAR" />
+    <result column="CREATOR_NAME" property="creatorName" jdbcType="VARCHAR" />
+    <result column="CREATOR_TIME" property="creatorTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.superx.spider.entity.InfoWithBLOBs" extends="BaseResultMap" >
+    <result column="CONTENT" property="content" jdbcType="LONGVARCHAR" />
+    <result column="SEND_CONTENT" property="sendContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PROVINCE_CODE, PROVINCE, LINK, TITLE, AUTHOR, SOURCE, TIME, STATUS, TYPE, IDENT, 
+    CREATOR_NAME, CREATOR_TIME
+  </sql>
+  <sql id="Blob_Column_List" >
+    CONTENT, SEND_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.superx.spider.entity.InfoWithBLOBs" >
+    insert into t_info (ID, PROVINCE_CODE, PROVINCE, 
+      LINK, TITLE, AUTHOR, 
+      SOURCE, TIME, STATUS, 
+      TYPE, IDENT, CREATOR_NAME, 
+      CREATOR_TIME, CONTENT, SEND_CONTENT
+      )
+    values (#{id,jdbcType=INTEGER}, #{provinceCode,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{link,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{ident,jdbcType=VARCHAR}, #{creatorName,jdbcType=VARCHAR}, 
+      #{creatorTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}, #{sendContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.superx.spider.entity.InfoWithBLOBs" >
+    insert into t_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="provinceCode != null" >
+        PROVINCE_CODE,
+      </if>
+      <if test="province != null" >
+        PROVINCE,
+      </if>
+      <if test="link != null" >
+        LINK,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="author != null" >
+        AUTHOR,
+      </if>
+      <if test="source != null" >
+        SOURCE,
+      </if>
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="ident != null" >
+        IDENT,
+      </if>
+      <if test="creatorName != null" >
+        CREATOR_NAME,
+      </if>
+      <if test="creatorTime != null" >
+        CREATOR_TIME,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="sendContent != null" >
+        SEND_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="provinceCode != null" >
+        #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="ident != null" >
+        #{ident,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorName != null" >
+        #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorTime != null" >
+        #{creatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sendContent != null" >
+        #{sendContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.superx.spider.entity.InfoWithBLOBs" >
+    update t_info
+    <set >
+      <if test="provinceCode != null" >
+        PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        LINK = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        AUTHOR = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        TIME = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="ident != null" >
+        IDENT = #{ident,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorName != null" >
+        CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorTime != null" >
+        CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sendContent != null" >
+        SEND_CONTENT = #{sendContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.superx.spider.entity.InfoWithBLOBs" >
+    update t_info
+    set PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      LINK = #{link,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      AUTHOR = #{author,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      IDENT = #{ident,jdbcType=VARCHAR},
+      CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP},
+      CONTENT = #{content,jdbcType=LONGVARCHAR},
+      SEND_CONTENT = #{sendContent,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.superx.spider.entity.Info" >
+    update t_info
+    set PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      LINK = #{link,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      AUTHOR = #{author,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      IDENT = #{ident,jdbcType=VARCHAR},
+      CREATOR_NAME = #{creatorName,jdbcType=VARCHAR},
+      CREATOR_TIME = #{creatorTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  <select id="selectInfoList" resultMap="BaseResultMap"
+		parameterType="com.superx.spider.entity.Info">
+		select
+		<include refid="Base_Column_List" />
+		from t_info
+	</select>
+	
+	<select id="selectInfoWithBLOBsList" resultMap="ResultMapWithBLOBs"
+		parameterType="com.superx.spider.entity.Info">
+		select
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		from t_info
+		<where>
+			<if test="provinceCode != null and provinceCode!=''">
+				AND PROVINCE_CODE = #{provinceCode,jdbcType=VARCHAR}
+			</if>
+			<if test="status != null and status !=''">
+				AND STATUS = #{status,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	 <update id="updateInfoStatus" parameterType="com.superx.spider.entity.Info" >
+    update t_info
+    set STATUS = '1'
+  </update>
+  
+	  <update id="updateInfoIden" parameterType="com.superx.spider.entity.Info" >
+    update t_info
+    set  IDENT = '1' where STATUS='0'
+  </update>
+</mapper>

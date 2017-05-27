@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html class="no-js">
+    
+    <head>
+        <title>Admin Home Page</title>
+        <!-- Bootstrap -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+        <link href="assets/styles.css" rel="stylesheet" media="screen">
+        <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" >
+        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+      
+        <style type="text/css">
+        body{
+        }
+        #sidebar{
+        padding:0px;
+        }
+		#topjumbotron{
+        	padding:0px 30px 0px 30px;
+        }
+        #floatright{
+        	display:block ;float:right;
+        }
+        .floatleft{
+        	float:left; margin:0px 5px 0px 5px;
+        }
+        .floatleft label{
+        	float:left; font-size:14px;font-weight:normal;color:#333;
+        }
+        .floatleft div{
+        	float:left; 
+        }
+        #ullist > li {
+        	width:260px;
+        }
+        #buttonid{
+       display: table-cell; vertical-align: middle;
+        }
+		</style>
+    </head>
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">财务人员叫号系统</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> 张三 <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="#">修改密码</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="-1" href="login.html">退出</a>
+                                    </li>
+                                </ul>
+                            </li>
+                	</div>
+           		 </div>
+        	</div>
+       	</div>
+        <div class="jumbotron" id="topjumbotron">
+  <h5>横向业务</h5>
+  		<div class="container-fluid">
+			<div class="form-group floatleft" >
+                <label for="dtp_input3" class="col-md-2 control-label">上午业务开始时间:</label>
+                <div class="input-group date form_time col-md-4" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                </div>
+			</div>
+			<div class="conform-group floatleft" >
+			   <label for="dtp_input3" class="col-md-2 control-label">上午业务结束时间:</label>
+                <div class="input-group date form_time col-md-4" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                </div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="form-group floatleft" >
+			   <label for="dtp_input3" class="col-md-2 control-label">下午业务开始时间:</label>
+                <div class="input-group date form_time col-md-4" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                </div>
+			</div>
+			<div class="form-group floatleft" >
+			   <label for="dtp_input3" class="col-md-2 control-label">下午业务结束时间:</label>
+                <div class="input-group date form_time col-md-4" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                </div>
+			</div> 
+		</div>
+		<div class="container-fluid">
+			<div class="form-group floatleft" >
+			   <label for="dtp_input3" class="col-md-2 control-label">每天最大业务数量 :</label>
+                <div class="input-group col-md-4">
+                   <input type="text" value="5" style="width:80px;background-color:#f5f5f0;"/>
+                </div>
+			</div>
+			 
+		</div>
+		<div class="container-fluid">
+			<div class=" floatright" >
+                <div class="input-group col-md-4">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">开始</a>
+			  		 <a class="btn btn-primary btn-lg" href="#" role="button">暂停</a>
+			  		 <a class="btn btn-primary btn-lg" href="#" role="button">结束</a>
+                </div>
+			  
+			</div> 
+		</div>
+  <hr/>
+</div>
+
+        
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse" id="ullist">
+                        <li class="active">
+                            <a href="index.html"> 当天排队员工信息</a>
+                        </li>
+                         <li class="active">
+                            <a href="index.html"> 序号 姓名  部门</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 张三  技术部</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 李四</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 王五</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 小刘</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 胡巴</a>
+                        </li>
+                          <li>
+                            <a href="calendar.html">1 张三</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 李四</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 王五</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">1 小刘</a>
+                        </li>
+                 
+                    </ul>
+                </div>
+                
+                <!--/span-->
+                <div class="span9" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">当前报销员工</div>
+                                <div class="pull-right"><span class="badge badge-warning"></span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span6">
+                                  	<div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">员工信息</div>
+		                                    <div class="pull-right"><span class="badge badge-info">张三</span>
+		                                    </div>
+		                                </div>
+		                                <div class="block-content collapse in">
+		                                    张三  <p/>130131232 <p/>技术部
+		                                </div>
+                            	 	</div>
+                         		 </div>
+                          
+                          <div class="span6">
+                                  <div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">报销明细</div>
+		                                    <div class="pull-right"><span class="badge badge-info">共3条</span>
+		
+		                                    </div>
+		                                </div>
+	                                <div class="block-content collapse in">
+	                                    <table class="table table-striped">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>#</th>
+	                                                <th>名称</th>
+	                                                <th>内容</th>
+	                                                <th>类型</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        </div>
+                        <!-- /block -->
+                        
+                        <!-- block -->
+                        <div class="block" id="nextph">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">下一位报销员工</div>
+                                <div class="pull-right"><span class="badge badge-warning"></span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span6">
+                                  	<div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">员工信息</div>
+		                                    <div class="pull-right"><span class="badge badge-info">张三</span>
+		                                    </div>
+		                                </div>
+		                                <div class="block-content collapse in">
+		                                    张三  <p/>130131232 <p/>技术部
+		                                </div>
+                            	 	</div>
+                         		 </div>
+                          
+                          <div class="span6">
+                                  <div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">报销明细</div>
+		                                    <div class="pull-right"><span class="badge badge-info">共3条</span>
+		
+		                                    </div>
+		                                </div>
+	                                <div class="block-content collapse in">
+	                                    <table class="table table-striped">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>#</th>
+	                                                <th>名称</th>
+	                                                <th>内容</th>
+	                                                <th>类型</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        </div>
+                        <!-- /block -->
+                        
+                        
+                        
+                        <div class="container" id="buttonid" align="center">
+                        <button class="btn btn-danger btn-large" id="next">叫号下一位</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+<div class="container mp30">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-list-alt"></span><b>News</b></div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-xs-12">
+									<ul id="demo3">
+										<li class="news-item">
+<div class="block" id="nextph">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">3下一位报销员工</div>
+                                <div class="pull-right"><span class="badge badge-warning"></span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span6">
+                                  	<div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">员工信息</div>
+		                                    <div class="pull-right"><span class="badge badge-info">张三</span>
+		                                    </div>
+		                                </div>
+		                                <div class="block-content collapse in">
+		                                    张三  <p/>130131232 <p/>技术部
+		                                </div>
+                            	 	</div>
+                         		 </div>
+                          
+                          <div class="span6">
+                                  <div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">报销明细</div>
+		                                    <div class="pull-right"><span class="badge badge-info">共3条</span>
+		
+		                                    </div>
+		                                </div>
+	                                <div class="block-content collapse in">
+	                                    <table class="table table-striped">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>#</th>
+	                                                <th>名称</th>
+	                                                <th>内容</th>
+	                                                <th>类型</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        </div>
+										</li>
+										<li class="news-item">
+
+<div class="block" id="nextph">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">2下一位报销员工</div>
+                                <div class="pull-right"><span class="badge badge-warning"></span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span6">
+                                  	<div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">员工信息</div>
+		                                    <div class="pull-right"><span class="badge badge-info">张三</span>
+		                                    </div>
+		                                </div>
+		                                <div class="block-content collapse in">
+		                                    张三  <p/>130131232 <p/>技术部
+		                                </div>
+                            	 	</div>
+                         		 </div>
+                          
+                          <div class="span6">
+                                  <div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">报销明细</div>
+		                                    <div class="pull-right"><span class="badge badge-info">共3条</span>
+		
+		                                    </div>
+		                                </div>
+	                                <div class="block-content collapse in">
+	                                    <table class="table table-striped">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>#</th>
+	                                                <th>名称</th>
+	                                                <th>内容</th>
+	                                                <th>类型</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        </div>
+										</li>
+										<li class="news-item">
+<div class="block" id="nextph">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">1下一位报销员工</div>
+                                <div class="pull-right"><span class="badge badge-warning"></span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span6">
+                                  	<div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">员工信息</div>
+		                                    <div class="pull-right"><span class="badge badge-info">张三</span>
+		                                    </div>
+		                                </div>
+		                                <div class="block-content collapse in">
+		                                    张三  <p/>130131232 <p/>技术部
+		                                </div>
+                            	 	</div>
+                         		 </div>
+                          
+                          <div class="span6">
+                                  <div class="block">
+		                                <div class="navbar navbar-inner block-header">
+		                                    <div class="muted pull-left">报销明细</div>
+		                                    <div class="pull-right"><span class="badge badge-info">共3条</span>
+		
+		                                    </div>
+		                                </div>
+	                                <div class="block-content collapse in">
+	                                    <table class="table table-striped">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>#</th>
+	                                                <th>名称</th>
+	                                                <th>内容</th>
+	                                                <th>类型</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>1</td>
+	                                                <td>车费</td>
+	                                                <td>出差</td>
+	                                                <td>火车</td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        </div>
+</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+            <footer>
+                <p>&copy; Vincent Gabriel 2013</p>
+            </footer>
+        </div>
+         
+        <!--/.fluid-container-->
+        <script src="vendors/jquery-1.9.1.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script src="assets/scripts.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+		<script src="bootstrap/js/jquery.bootstrap.newsbox.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+	$('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    });
+	$("#next").click(function(){
+		$("#nextph").slideUp("slow");
+		
+	});
+
+    $("#demo3").bootstrapNews({
+        newsPerPage: 2,
+        autoplay: false,
+        
+        onToDo: function () {
+            //console.log(this);
+        },
+        onNext: function () {
+    	   alert(2);
+       }
+    });
+</script>
+        <script>
+        $(function() {
+            // Easy pie charts
+            $('.chart').easyPieChart({animate: 1000});
+        });
+        </script>
+    </body>
+
+</html>
