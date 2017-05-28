@@ -1,7 +1,11 @@
 package com.superx.spider.entity;
 
 import java.util.Date;
-
+/**
+ * 
+ * @author xuzj
+ *
+ */
 public class Info {
     private Integer id;
 
