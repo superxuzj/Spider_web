@@ -34,36 +34,28 @@ public class TaiwangController {
 	@RequestMapping("/spider/taiwang")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=taiwang "+request.getRequestURI());
+		System.out.println("URI=taiwang " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.taiwang);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 
 		try {
-			Document doc = Jsoup.connect("http://www.cenc.ac.cn/publish/cenc/911/index.html")
+			Document doc = Jsoup.connect("http://www.cenc.ac.cn/cenc/320429/index.html")
 								.header("User-Agent", Constants.HEAD)		
 								.timeout(Constants.TIMEOUT)
 								.get();
-			Element page = doc.select("div.page").first();
-			String pageStringAll = page.text().split("共")[2];
-//			System.out.println(pageStringAll);
-			
-			String pageString  = pageStringAll.substring(0, pageStringAll.length()-1);
-			int pageSize = Integer.valueOf(pageString);
+			Element page = doc.select("a.pagingNormal").get(1);
+			String pages = page.toString();
+			int indexof = pages.indexOf("-");
+			String pagesizes = pages.substring(indexof+1,indexof+2);
+			int pageSize = Integer.valueOf(pagesizes);
 			System.out.println(pageSize);
 			for(int i=1;i<=pageSize;i++){
 				Document docpage ;
-				if(i==1){
-					docpage = Jsoup.connect("http://www.cenc.ac.cn/publish/cenc/911/index.html")
-									.header("User-Agent", Constants.HEAD)		
-									.timeout(Constants.TIMEOUT)
-									.get();
-				}else{
-					docpage = Jsoup.connect("http://www.cenc.ac.cn/publish/cenc/911/index_"+i+".html")
-									.header("User-Agent", Constants.HEAD)		
-									.timeout(Constants.TIMEOUT)
-									.get();
-				}
-				Elements lis = docpage.select("div.listmain_l_rcon li a");
+				docpage = Jsoup.connect("http://www.cenc.ac.cn/cenc/320429/4bfd7158-"+i+".html")
+								.header("User-Agent", Constants.HEAD)		
+								.timeout(Constants.TIMEOUT)
+								.get();
+				Elements lis = docpage.select("div.erji_art_con p a");
 				
 				for (Element element : lis) {
 					String title = element.text();
@@ -75,13 +67,13 @@ public class TaiwangController {
 												.header("User-Agent", Constants.HEAD)		
 												.timeout(Constants.TIMEOUT)
 												.get();
-					Element telement = docdetail.select("div.detailmain_l>div").get(2);
+					Element telement = docdetail.select("div.pages-date").first();
 					String time = telement.text();
 					//System.out.println(time);
 					String ssource;
-					ssource = time.substring(time.indexOf("信息来源")+5,time.length()).trim();
-					String stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("信息来源")).trim();
-					Element content =docdetail.select("div.detailmain_lcon").first();
+					ssource = time.substring(time.indexOf("来源")+3,time.indexOf("【")).trim();
+					String stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("来源")).trim();
+					Element content =docdetail.getElementById("news_content");
 					Elements imgs = content.select("img");
 					  for (Element img : imgs) {
 						 String src = img.attr("src");

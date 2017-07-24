@@ -36,7 +36,7 @@ public class ShanghaiController {
 	@RequestMapping("/spider/shanghai")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI= shanghai "+request.getRequestURI());
+		System.out.println("URI= shanghai " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.shanghai);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

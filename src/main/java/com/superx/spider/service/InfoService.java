@@ -38,6 +38,9 @@ public class InfoService {
 		return  infoMapper.selectInfoWithBLOBsList(info);
 	}
 	
+	public List<InfoWithBLOBs> selectInfoWithBLOBsListByMakeDate(InfoWithBLOBs info){
+		return  infoMapper.selectInfoWithBLOBsListByMakeDate(info);
+	}
 	//接口数据表所有的链接  一个链接只传一次
 	public Set<String> selectInfolinksList(){
 		Set<String> set=new HashSet<String>();

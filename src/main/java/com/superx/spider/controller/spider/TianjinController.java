@@ -31,7 +31,7 @@ public class TianjinController {
 	@RequestMapping("/spider/tianjin")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=tianjin "+request.getRequestURI());
+		System.out.println("URI=tianjin " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.tianjin);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

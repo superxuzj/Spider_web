@@ -34,7 +34,7 @@ public class JiangsuController {
 	@RequestMapping("/spider/jiangsu")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=jiangsu "+request.getRequestURI());
+		System.out.println("URI=jiangsu " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.jiangsu);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

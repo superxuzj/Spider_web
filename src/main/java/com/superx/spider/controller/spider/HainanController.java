@@ -35,7 +35,7 @@ public class HainanController {
 	@RequestMapping("/spider/hainan")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI= hainan "+request.getRequestURI());
+		System.out.println("URI= hainan " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.hainan);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

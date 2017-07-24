@@ -34,7 +34,7 @@ public class ShxiController {
 	@RequestMapping("/spider/shxi")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=shxi "+request.getRequestURI());
+		System.out.println("URI=shxi " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.shxi);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 
@@ -49,7 +49,7 @@ public class ShxiController {
 			String pageStringAll = page.text();
 			String pageString  = pageStringAll.substring(pageStringAll.indexOf("/")+1, pageStringAll.indexOf("/")+3);
 			
-			System.out.println(pageString);
+			//System.out.println(pageString);
 			int pageSize = Integer.valueOf(pageString.trim());
 			for(int i=1;i<=pageSize;i++){
 				Document docpage ;

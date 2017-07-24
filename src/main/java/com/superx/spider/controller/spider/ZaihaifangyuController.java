@@ -34,7 +34,7 @@ public class ZaihaifangyuController {
 	@RequestMapping("/spider/zaihaifangyu")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=zaihaifangyu "+request.getRequestURI());
+		System.out.println("URI=zaihaifangyu " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.zaihaifangyu);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 
@@ -75,7 +75,7 @@ public class ZaihaifangyuController {
 						Elements imgs = content.select("img");
 						for (Element img : imgs) {
 							String src = img.attr("src");
-							img.attr("src", "http://www.eq-cedpc.cn"+src.substring(2, src.length()));
+							img.attr("src", "http://www.eq-cedpc.cn"+src);
 						}
 						String html = content.html();
 						LinksWithBLOBs linksWithBLOBs = new LinksWithBLOBs();

@@ -40,9 +40,12 @@
                         <li>
                             <a href="<%=request.getContextPath()%>/info"><i class="icon-chevron-right"></i> 数据管理</a>
                         </li>
-                         <li>
-                            <a href="<%=request.getContextPath()%>/spider/all"><i class="icon-chevron-right"></i> 数据爬取</a>
+                        <li>
+                            <a href="<%=request.getContextPath()%>/makeDate"><i class="icon-chevron-right"></i> 月报数据生成</a>
                         </li>
+                        <!--  <li>
+                            <a href="<%=request.getContextPath()%>/spider/all"><i class="icon-chevron-right"></i> 数据爬取</a>
+                        </li> -->
                        <!--  <li>
                             <a href="#"><i class="icon-chevron-right"></i> 通告管理</a>
                         </li> -->

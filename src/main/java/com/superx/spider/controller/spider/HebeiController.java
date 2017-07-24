@@ -31,7 +31,7 @@ public class HebeiController {
 	@RequestMapping("/spider/hebei")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=hebei "+request.getRequestURI());
+		System.out.println("URI=hebei " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.hebei);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

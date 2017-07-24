@@ -34,7 +34,7 @@ public class SichuanController {
 	@RequestMapping("/spider/sichuan")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=sichuan "+request.getRequestURI());
+		System.out.println("URI=sichuan " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.sichuan);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

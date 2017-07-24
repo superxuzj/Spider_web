@@ -34,7 +34,7 @@ public class YingjisoujiuController {
 	@RequestMapping("/spider/yingjisoujiu")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=yingjisoujiu "+request.getRequestURI());
+		System.out.println("URI=yingjisoujiu " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.yingjisoujiu);
 		//List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

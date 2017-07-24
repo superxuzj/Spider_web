@@ -35,7 +35,7 @@ public class HubeiController {
 	@RequestMapping("/spider/hubei")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI= hubei"+request.getRequestURI());
+		System.out.println("URI= hubei" +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.hubei);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

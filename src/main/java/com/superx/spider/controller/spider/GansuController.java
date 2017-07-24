@@ -34,7 +34,7 @@ public class GansuController {
 	@RequestMapping("/spider/gansu")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI= gansu"+request.getRequestURI());
+		System.out.println("URI= gansu" +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.gansu);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

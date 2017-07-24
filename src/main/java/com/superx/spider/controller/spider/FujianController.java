@@ -35,7 +35,7 @@ public class FujianController {
 	@RequestMapping("/spider/fujian")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=fujian "+request.getRequestURI());
+		System.out.println("URI=fujian "+" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.fujian);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

@@ -34,7 +34,7 @@ public class YunnanController {
 	@RequestMapping("/spider/yunnan")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=yunnan "+request.getRequestURI());
+		System.out.println("URI=yunnan " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.yunnan);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

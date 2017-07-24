@@ -31,7 +31,7 @@ public class JilinController {
 	@RequestMapping("/spider/jilin")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI= jilin "+request.getRequestURI());
+		System.out.println("URI= jilin " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.jilin);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

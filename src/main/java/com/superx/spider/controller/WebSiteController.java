@@ -26,7 +26,7 @@ public class WebSiteController {
     		HttpServletResponse response,Model model,WebSite record) {
 		List<WebSite> websiteList = webSiteService.selectWebsiteList(record);
 		model.addAttribute("websiteList", websiteList);
-        return "websitelist";
+        return "index";
     }
 	
 	@RequestMapping("/add")

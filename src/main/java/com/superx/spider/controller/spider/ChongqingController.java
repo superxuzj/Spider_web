@@ -34,7 +34,7 @@ public class ChongqingController {
 	@RequestMapping("/spider/chongqing")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI= chongqing "+request.getRequestURI());
+		System.out.println("URI= chongqing "+" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.chongqing);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>();

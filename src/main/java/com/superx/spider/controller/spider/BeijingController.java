@@ -31,7 +31,7 @@ public class BeijingController {
 	@RequestMapping("/spider/beijing")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI= beijing "+request.getRequestURI());
+		System.out.println("URI= beijing "+" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.beijing);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>();

@@ -34,7 +34,7 @@ public class XizangController {
 	@RequestMapping("/spider/xizang")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=xizang "+request.getRequestURI());
+		System.out.println("URI=xizang " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.xizang);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

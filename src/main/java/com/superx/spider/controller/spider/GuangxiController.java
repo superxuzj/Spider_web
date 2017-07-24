@@ -34,7 +34,7 @@ public class GuangxiController {
 	@RequestMapping("/spider/guangxi")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=guangxi "+request.getRequestURI());
+		System.out.println("URI=guangxi " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.guangxi);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 
@@ -43,8 +43,12 @@ public class GuangxiController {
 								.header("User-Agent", Constants.HEAD)
 								.timeout(Constants.TIMEOUT)
 								.get();
-			Element page = doc.select("div.page02").first();
-			int pageSize = Integer.valueOf(page.text().substring(page.text().indexOf("/")+1, page.text().indexOf("页)")));
+//			Element page = doc.select("div.page02").first();
+//			int pageSize = Integer.valueOf(page.text().substring(page.text().indexOf("/")+1, page.text().indexOf("页)")));
+			Element page = doc.select("div.page").first();
+			int from = page.text().indexOf("/")+1;
+			int to  = page.text().indexOf("页");
+			int pageSize = Integer.valueOf(page.text().substring(from, to));
 			for(int i=1;i<=pageSize;i++){
 				Document docpage ;
 				if(i==1){

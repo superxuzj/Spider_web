@@ -31,7 +31,7 @@ public class LiaoningController {
 	@RequestMapping("/spider/liaoning")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=liaoning "+request.getRequestURI());
+		System.out.println("URI=liaoning " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.liaoning);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

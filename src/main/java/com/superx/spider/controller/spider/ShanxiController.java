@@ -31,7 +31,7 @@ public class ShanxiController {
 	@RequestMapping("/spider/shanxi")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=shanxi "+request.getRequestURI());
+		System.out.println("URI=shanxi " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.shanxi);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 
@@ -114,7 +114,7 @@ public class ShanxiController {
 				pageString = pageString.substring(0, pageString.length()-1);
 			}
 			int pageSize = Integer.valueOf(pageString);
-			System.out.println(pageSize);
+			//System.out.println(pageSize);
 			for(int i=pageSize-1;i>0;i--){
 				Document docpage ;
 				docpage = Jsoup.connect("http://www.shxdzj.gov.cn/n16/n1072/n1077/index_238389_"+i+".html")

@@ -35,7 +35,7 @@ public class AnhuiController {
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
 		int count = 0;
-		System.out.println("URI= anhui");
+		System.out.println("URI= anhui" +" "+new Date());
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.anhui);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>();
 		try {

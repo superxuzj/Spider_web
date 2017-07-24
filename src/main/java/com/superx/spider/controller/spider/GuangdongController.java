@@ -35,7 +35,7 @@ public class GuangdongController {
 	@RequestMapping("/spider/guangdong")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=guangdong "+request.getRequestURI());
+		System.out.println("URI=guangdong " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.guangdong);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 

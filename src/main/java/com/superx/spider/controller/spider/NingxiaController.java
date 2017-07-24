@@ -34,7 +34,7 @@ public class NingxiaController {
 	@RequestMapping("/spider/ningxia")
 	public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model){
-		System.out.println("URI=ningxia "+request.getRequestURI());
+		System.out.println("URI=ningxia " +" "+new Date());
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.ningxia);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 
