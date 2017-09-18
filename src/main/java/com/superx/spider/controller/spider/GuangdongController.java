@@ -60,7 +60,7 @@ public class GuangdongController {
 						Document doca = Jsoup.connect(url)
 										     .header("User-Agent", Constants.HEAD)
 											 .timeout(Constants.TIMEOUT).get();
-						Element content = doca.select("td.text1").first();
+						Element content = doca.select("div.detail_main_right_conbg_con").first();
 //						System.out.println(content);
 						Elements imgs = content.select("img");
 						for (Element img : imgs) {

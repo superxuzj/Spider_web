@@ -42,10 +42,10 @@
 							class="icon-chevron-right"></i> 菜单</a></li>
 					<li><a href="<%=request.getContextPath()%>/"><i
 							class="icon-chevron-right"></i> 爬虫管理</a></li>
-					<li class="active"><a
+					<!-- <li><a
 						href="<%=request.getContextPath()%>/info"><i
-							class="icon-chevron-right"></i> 数据管理</a></li>
-					<li><a
+							class="icon-chevron-right"></i> 数据管理</a></li> -->
+					<li  class="activeli"><a
 						href="<%=request.getContextPath()%>/report"><i
 							class="icon-chevron-right"></i> 月报生成管理</a></li>
 					<!--  <li>
@@ -58,33 +58,20 @@
 			<div class="span9" id="content">
 				<div class="row-fluid">
 					<div class="block">
-						<button class="btn btn-primary btn-large" onclick="doData()">生成接口数据</button>
+						<input type="text" id="datatime" onclick="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM'})" class="Wdate"/>
 						<div class="block-content collapse in">
 							<div class="span12">
 								<table class="table table-striped">
 									<thead>
 										<tr>
-											<th>序号</th>
-											<th>编码</th>
-											<th>网站名称</th>
-											<th>抓取板块</th>
-											<th>抓取链接</th>
-											<th>操作</th>
+										<button class="btn btn-primary btn-large" onclick="doData()">生成月报数据</button>
+											
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${list }" var="link">
 											<tr>
-												<td>${link.id}</td>
-												<td>${link.webId}</td>
-												<td>${link.title}</td>
-												<td>${link.source}</td>
-												<td>${link.author}
-												</td>
-												<td>
-													</td>
+												
 											</tr>
-										</c:forEach>
 									</tbody>
 								</table>
 							</div>
@@ -107,9 +94,17 @@
 			src="<%=request.getContextPath()%>/callstatic/assets/scripts.js"></script>
 		<script
 			src="<%=request.getContextPath()%>/callstatic/assets/DT_bootstrap.js"></script>
+		<script
+			src="<%=request.getContextPath()%>/callstatic/js/WdatePicker.js"></script>
 		<script>
 function doData(){
-	window.location.href="<%=request.getContextPath()%>/spider/data";
+	var datatime = $("#datatime").val();
+	if(datatime==""){
+		alert("请选择生成月报月份！");
+		return;
+	}
+
+	window.location.href="<%=request.getContextPath()%>/download?datatime="+datatime;
 }
 </script>
 </body>

@@ -42,7 +42,6 @@
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="resolveLazily" value="true" />
 	</bean>
-
 	<!-- <mvc:resources mapping="/html/**" location="/WEB-INF/views/html/" />
 	<mvc:resources mapping="/code/**" location="/WEB-INF/views/code/" /> -->
 	 <mvc:resources mapping="/callstatic/**" location="/callstatic/" />

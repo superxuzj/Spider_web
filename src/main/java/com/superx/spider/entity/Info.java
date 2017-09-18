@@ -32,6 +32,9 @@ public class Info {
     private String creatorName;
 
     private Date creatorTime;
+    
+    private String formattime1;
+    private String formattime2;
 
     public Integer getId() {
         return id;
@@ -136,4 +139,20 @@ public class Info {
     public void setCreatorTime(Date creatorTime) {
         this.creatorTime = creatorTime;
     }
+
+	public String getFormattime1() {
+		return formattime1;
+	}
+
+	public void setFormattime1(String formattime1) {
+		this.formattime1 = formattime1;
+	}
+
+	public String getFormattime2() {
+		return formattime2;
+	}
+
+	public void setFormattime2(String formattime2) {
+		this.formattime2 = formattime2;
+	}
 }

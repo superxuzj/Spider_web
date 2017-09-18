@@ -7,7 +7,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <head>
-        <title>搜救中心财务报销预约后台管理系统</title>
+        <title>爬虫后台管理系统</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <!-- Bootstrap -->
         <link href="<%=request.getContextPath()%>/callstatic/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -37,13 +37,16 @@
                         <li class="activeli">
                             <a href="<%=request.getContextPath()%>/"><i class="icon-chevron-right"></i> 爬虫管理</a>
                         </li>
+                       
                         <li>
+                            <a href="<%=request.getContextPath()%>/report"><i class="icon-chevron-right"></i> 月报生成管理</a>
+                        </li>
+                        
+                        <!--  
+                         <li>
                             <a href="<%=request.getContextPath()%>/info"><i class="icon-chevron-right"></i> 数据管理</a>
                         </li>
                         <li>
-                            <a href="<%=request.getContextPath()%>/makeDate"><i class="icon-chevron-right"></i> 月报数据生成</a>
-                        </li>
-                        <!--  <li>
                             <a href="<%=request.getContextPath()%>/spider/all"><i class="icon-chevron-right"></i> 数据爬取</a>
                         </li> -->
                        <!--  <li>

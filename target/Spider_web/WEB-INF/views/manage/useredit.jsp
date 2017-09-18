@@ -7,7 +7,7 @@
     <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>搜救中心财务报销预约后台管理系统</title>
+        <title>爬虫后台管理系统</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <!-- Bootstrap -->
         <link href="<%=request.getContextPath()%>/callstatic/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">

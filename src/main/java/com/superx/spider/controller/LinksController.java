@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.superx.spider.controller.spider.AnhuiController;
 import com.superx.spider.controller.spider.BeijingController;
 import com.superx.spider.controller.spider.ChongqingController;
+import com.superx.spider.controller.spider.DizhenjuController;
 import com.superx.spider.controller.spider.FujianController;
 import com.superx.spider.controller.spider.GansuController;
 import com.superx.spider.controller.spider.GuangdongController;
@@ -150,6 +151,9 @@ public class LinksController {
 	@Autowired
 	private ZaihaifangyuController zaihaifangyuController;
 	
+	@Autowired
+	private DizhenjuController dizhenjuController;
+	
 	@RequestMapping("spider/all")
     public String index(HttpServletRequest request, 
     		HttpServletResponse response,Model model) {
@@ -188,6 +192,7 @@ public class LinksController {
 		yingjisoujiuController.index(request, response, model);
 		taiwangController.index(request, response, model);
 		zaihaifangyuController.index(request, response, model);
+		dizhenjuController.index(request, response, model);
 		System.out.println(new Date());
 		return "redirect:/";
     }

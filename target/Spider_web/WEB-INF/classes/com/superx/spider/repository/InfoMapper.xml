@@ -257,6 +257,30 @@
 		</where>
 	</select>
 	
+	<select id="selectInfoWithBLOBsListByMakeDateSecond" resultMap="ResultMapWithBLOBs"
+		parameterType="com.superx.spider.entity.Info">
+		select
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		from t_info
+		<where>
+		    PROVINCE_CODE != 'dizhenju' and
+			(TIME LIKE #{formattime1} OR TIME LIKE #{formattime2})
+		</where>
+	</select>
+	
+	<select id="selectInfoWithBLOBsListByMakeDateFirst" resultMap="ResultMapWithBLOBs"
+		parameterType="com.superx.spider.entity.Info">
+		select
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		from t_info
+		<where>
+		    PROVINCE_CODE = 'dizhenju' and
+			(TIME LIKE #{formattime1} OR TIME LIKE #{formattime2})
+		</where>
+	</select>
+	
 	 <update id="updateInfoStatus" parameterType="com.superx.spider.entity.Info" >
     update t_info
     set STATUS = '1'

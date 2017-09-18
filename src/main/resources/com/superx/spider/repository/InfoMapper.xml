@@ -257,14 +257,27 @@
 		</where>
 	</select>
 	
-	<select id="selectInfoWithBLOBsListByMakeDate" resultMap="ResultMapWithBLOBs"
+	<select id="selectInfoWithBLOBsListByMakeDateSecond" resultMap="ResultMapWithBLOBs"
 		parameterType="com.superx.spider.entity.Info">
 		select
 		<include refid="Base_Column_List" />,
 		<include refid="Blob_Column_List" />
 		from t_info
 		<where>
-			TIME LIKE '%2017-06%' OR TIME LIKE '%2017年06月%'
+		    PROVINCE_CODE != 'dizhenju' and
+			(TIME LIKE #{formattime1} OR TIME LIKE #{formattime2})
+		</where>
+	</select>
+	
+	<select id="selectInfoWithBLOBsListByMakeDateFirst" resultMap="ResultMapWithBLOBs"
+		parameterType="com.superx.spider.entity.Info">
+		select
+		<include refid="Base_Column_List" />,
+		<include refid="Blob_Column_List" />
+		from t_info
+		<where>
+		    PROVINCE_CODE = 'dizhenju' and
+			(TIME LIKE #{formattime1} OR TIME LIKE #{formattime2})
 		</where>
 	</select>
 	

@@ -74,13 +74,15 @@ public class FujianController {
                 	  }else{
                 		  html = Jsoup.parse(trContent.html().split("【下 一 篇】")[0]).html();
                 	  }
+                	  String stime = trTime.text();
+                	  String time  =stime.substring(stime.indexOf("发布时间")+5,stime.indexOf("浏览次数")).trim();
                 	  	LinksWithBLOBs linksWithBLOBs = new LinksWithBLOBs();
 						linksWithBLOBs.setWebId(Constants.fujian);
 					    linksWithBLOBs.setTitle(trTitle.text());
 						linksWithBLOBs.setLink(url);
 						linksWithBLOBs.setSource("");
 						linksWithBLOBs.setAuthor("");
-						linksWithBLOBs.setTime(trTime.text().substring(6, 16));
+						linksWithBLOBs.setTime(time);
 						linksWithBLOBs.setSendcontent(html);
 						linksWithBLOBs.setIdent("0");
 						linksWithBLOBs.setStatus("0");

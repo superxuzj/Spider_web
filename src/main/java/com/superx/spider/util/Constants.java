@@ -41,4 +41,5 @@ public class Constants {
 	public static final Integer yingjisoujiu = 32;//中国地震应急搜救中心
 	public static final Integer taiwang = 33;//中国地震台网中心
 	public static final Integer zaihaifangyu = 34;//中国地震灾害防御中心
+	public static final Integer dizhenju = 35;//中国地震局
 }

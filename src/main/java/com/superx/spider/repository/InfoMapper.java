@@ -24,7 +24,9 @@ public interface InfoMapper {
     
     List<InfoWithBLOBs> selectInfoWithBLOBsList(InfoWithBLOBs record);
     
-    List<InfoWithBLOBs> selectInfoWithBLOBsListByMakeDate(InfoWithBLOBs record);
+    List<InfoWithBLOBs> selectInfoWithBLOBsListByMakeDateFirst(InfoWithBLOBs record);
+    
+    List<InfoWithBLOBs> selectInfoWithBLOBsListByMakeDateSecond(InfoWithBLOBs record);
     
     int updateInfoStatus();
     

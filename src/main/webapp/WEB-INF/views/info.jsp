@@ -7,7 +7,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <head>
-<title>搜救中心财务报销预约后台管理系统</title>
+<title>爬虫后台管理系统</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <!-- Bootstrap -->
 <link
@@ -42,9 +42,12 @@
 							class="icon-chevron-right"></i> 菜单</a></li>
 					<li><a href="<%=request.getContextPath()%>/"><i
 							class="icon-chevron-right"></i> 爬虫管理</a></li>
-					<li class="activeli"><a
+					<li class="active"><a
 						href="<%=request.getContextPath()%>/info"><i
 							class="icon-chevron-right"></i> 数据管理</a></li>
+					<li><a
+						href="<%=request.getContextPath()%>/report"><i
+							class="icon-chevron-right"></i> 月报生成管理</a></li>
 					<!--  <li>
                             <a href="#"><i class="icon-chevron-right"></i> 通告管理</a>
                         </li> -->
