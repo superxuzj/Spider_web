@@ -109,7 +109,7 @@ public class DizhenjuController {
 						if(!ssource.equals("震灾应急救援司")){
 							continue;
 						}
-						String stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("信息来源")).trim();
+						String stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("发布时间")+15).trim();
 						Element telementcontent = docdetail.select("div.detail_main_right_conbg_con").first();//内容
 						Elements imgs = telementcontent.select("img");
 						  for (Element img : imgs) {

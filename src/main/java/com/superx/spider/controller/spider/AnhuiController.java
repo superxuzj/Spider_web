@@ -45,7 +45,6 @@ public class AnhuiController {
 			Element page = doc.select("table.border4").first();
 			String pageString = page.text();
 			pageString = pageString.substring(pageString.indexOf("第 1 页 共")+7,pageString.indexOf("第 1 页 共")+9);
-			System.out.println(pageString);
 			int pageSize = Integer.valueOf(pageString.trim());
 			//System.out.println(pageSize);
 			for(int i=1;i<=pageSize;i++){
@@ -77,6 +76,7 @@ public class AnhuiController {
 							if(td.attr("bgcolor").equals("#E7E7E7")){
 								String time = td.text();
 								stime = time.substring(time.indexOf("发布时间")+5, time.indexOf("发布时间")+15);
+								System.out.println(stime);
 								ssource= time.substring(time.indexOf("来源")+3, time.indexOf("作者")).trim();
 								sauthor = time.substring(time.indexOf("作者")+3, time.length());
 								//System.out.println(td.text());
@@ -98,14 +98,6 @@ public class AnhuiController {
 						linksWithBLOBs.setCreatorName("superxu");
 						linksWithBLOBs.setCreatorTime(new Date());
 						list.add(linksWithBLOBs);
-						//int result = linksService.insertSelective(linksWithBLOBs);
-						//System.out.println(result+"   result");
-						/*Elements imgs = scontent.select("img");
-						for (Element img : imgs) {
-							String src = img.attr("src");
-							img.attr("src", "http://eq.ah.gov.cn"+src);
-						}*/
-						//System.out.println(scontent.html());
 						
 						System.out.println(++count);
 					}
@@ -183,7 +175,7 @@ public class AnhuiController {
 			e.printStackTrace();
 		}
 		
-		String url = "http://eq.ah.gov.cn/ny_content/?zlm=6&ty=159";
+		/*String url = "http://eq.ah.gov.cn/ny_content/?zlm=6&ty=159";
 		if(!urlSet.contains(url)){
 			try {
 				Document  docpage = Jsoup.connect(url)
@@ -223,7 +215,7 @@ public class AnhuiController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}*/
 		
 		linksService.insertLinksWithBLOBsList(list);
 		return "redirect:/";

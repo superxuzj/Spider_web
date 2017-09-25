@@ -74,6 +74,8 @@ public class GansuController {
 						String time = telement.text().replace("\u00A0","");
 						String ssource = time.substring(time.indexOf("来源")+3,time.indexOf("|"));
 						String stime = time.substring(time.indexOf("发布日期")+5,time.indexOf("发布日期")+16);
+						stime = stime.replace("年", "-").replace("月", "-").replace("日", "");
+						System.out.println(stime);
 						Element content =docdetail.getElementById("wwkjArticleDetail");
 						Elements imgs = content.select("img");
 						for (Element img : imgs) {
@@ -107,7 +109,7 @@ public class GansuController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		linksService.insertLinksWithBLOBsList(list);
+		//linksService.insertLinksWithBLOBsList(list);
 		return "redirect:/";
 	}
 }

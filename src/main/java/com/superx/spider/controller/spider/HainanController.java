@@ -80,7 +80,7 @@ public class HainanController {
 						Element telement = docdetail.select("div.ny_ly").first();
 						String time = telement.html();
 						//System.out.println(time);
-						ssource = time.substring(time.indexOf("laiyuan")+11,time.indexOf("if")).trim().replace("\u00A0","");
+						ssource = time.substring(time.indexOf("laiyuan")+12,time.indexOf("if")-2).trim().replace("\u00A0","");
 						String timeString = telement.text().trim().replace("\u00A0","");
 						stime = timeString.substring(5, timeString.length());
 						Element contente = docdetail.select("div.TRS_Editor").first();

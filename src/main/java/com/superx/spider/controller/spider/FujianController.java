@@ -75,7 +75,8 @@ public class FujianController {
                 		  html = Jsoup.parse(trContent.html().split("【下 一 篇】")[0]).html();
                 	  }
                 	  String stime = trTime.text();
-                	  String time  =stime.substring(stime.indexOf("发布时间")+5,stime.indexOf("浏览次数")).trim();
+                	  String time  =stime.substring(stime.indexOf("发布时间")+5,stime.indexOf(" ")).trim();
+                	  
                 	  	LinksWithBLOBs linksWithBLOBs = new LinksWithBLOBs();
 						linksWithBLOBs.setWebId(Constants.fujian);
 					    linksWithBLOBs.setTitle(trTitle.text());
@@ -124,6 +125,8 @@ public class FujianController {
                	  Element trTime =  table.select("tr").get(1);//时间
                	  Element trContent =  table.select("tr").get(2);//
                	  
+               	  String stime = trTime.text();
+               	  String time  =stime.substring(stime.indexOf("发布时间")+5,stime.indexOf(" ")).trim();
                	  String html;
                	  if(trContent.html().contains("【上 一 篇】")){
                		  html = Jsoup.parse(trContent.html().split("【上 一 篇】")[0]).html();
@@ -136,7 +139,7 @@ public class FujianController {
 						linksWithBLOBs.setLink(url);
 						linksWithBLOBs.setSource("");
 						linksWithBLOBs.setAuthor("");
-						linksWithBLOBs.setTime(trTime.text().substring(6, 16));
+						linksWithBLOBs.setTime(time);
 						linksWithBLOBs.setSendcontent(html);
 						linksWithBLOBs.setIdent("0");
 						linksWithBLOBs.setStatus("0");
@@ -152,7 +155,7 @@ public class FujianController {
      } catch (IOException e) {
          e.printStackTrace();
      }
-		 linksService.insertLinksWithBLOBsList(list);
-			return "redirect:/";
+	  linksService.insertLinksWithBLOBsList(list);
+	  return "redirect:/";
 	}
 }

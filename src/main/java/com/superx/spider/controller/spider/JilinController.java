@@ -70,7 +70,7 @@ public class JilinController {
 							  		   .timeout(Constants.TIMEOUT).get();
 					  String time = docdetail.select("div.msgbar").first().text();
 					  String sauthor = time.substring(time.indexOf("作者")+3,time.indexOf("来源")).trim();
-					  stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("作者")).trim();
+					  stime = time.substring(time.indexOf("发布时间")+6,time.indexOf("发布时间")+16).trim();
 					  Element content = docdetail.select("div.newsCon").first();
 					  Elements imgs = content.select("img");
 					  for (Element img : imgs) {
@@ -129,7 +129,7 @@ public class JilinController {
 							  		   .timeout(Constants.TIMEOUT).get();
 					  String time = docdetail.select("div.msgbar").first().text();
 					  String sauthor = time.substring(time.indexOf("作者")+3,time.indexOf("来源")).trim();
-					  stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("作者")).trim();
+					  stime = time.substring(time.indexOf("发布时间")+6,time.indexOf("发布时间")+16).trim();
 					  Element content = docdetail.select("div.newsCon").first();
 					  Elements imgs = content.select("img");
 					  for (Element img : imgs) {
@@ -186,7 +186,7 @@ public class JilinController {
 							  		   .timeout(Constants.TIMEOUT).get();
 					  String time = docdetail.select("div.msgbar").first().text();
 					  String sauthor = time.substring(time.indexOf("作者")+3,time.indexOf("来源")).trim();
-					  stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("作者")).trim();
+					  stime = time.substring(time.indexOf("发布时间")+6,time.indexOf("发布时间")+16).trim();
 					  Element content = docdetail.select("div.newsCon").first();
 					  Elements imgs = content.select("img");
 					  for (Element img : imgs) {

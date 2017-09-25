@@ -80,7 +80,7 @@ public class JiangxiController {
                           String ssource = sTime.substring(sTime.indexOf("来源")+3, sTime.indexOf("作者")).trim();
                           String sauthor = sTime.substring(sTime.indexOf("作者")+3, sTime.indexOf("浏览次数")).trim();
                           String stime = sTime.substring(sTime.indexOf("时间")+4, sTime.indexOf("来源")).trim();
-                          
+                          stime = stime.substring(0, stime.indexOf(" "));
                     	  Element content =  docDetail.select("td.ArticleContent").get(0);//内容
                     	  Elements imgs = content.select("img");
     					  /*for (Element img : imgs) {

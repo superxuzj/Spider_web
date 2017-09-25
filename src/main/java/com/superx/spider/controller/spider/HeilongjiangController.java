@@ -82,7 +82,8 @@ public class HeilongjiangController {
 						String time = telement.text().trim();
 						//System.out.println(time);
 						String ssource = time.substring(time.indexOf("来源")+3,time.length()).trim();
-						String stime = time.substring(time.indexOf("时间")+3,time.indexOf("来源")).trim();
+						String stime = time.substring(time.indexOf("时间")+4,time.indexOf("时间")+14).trim();
+						System.out.println(stime);
 						Element content =docdetail.select("div.mainnews").first();
 						Elements imgs = content.select("img");
 						for (Element img : imgs) {

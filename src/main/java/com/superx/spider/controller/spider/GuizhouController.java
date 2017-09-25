@@ -80,7 +80,7 @@ public class GuizhouController {
 						}
 						
 						String stime = time.substring(time.indexOf("时间")+3,time.length()).trim();
-						
+						stime = stime.replace("年", "-").replace("月", "-").replace("日", "");
 						Element content =docdetail.select("div.view_html").first();
 						Elements imgs = content.select("img");
 						for (Element img : imgs) {

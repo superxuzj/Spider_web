@@ -76,7 +76,8 @@ public class GuangxiController {
 						//System.out.println(time);
 						String sauthor = time.substring(time.indexOf("作者")+3, time.length());
 						String ssource = time.substring(time.indexOf("来源")+3, time.indexOf("作者"));
-                        String stime = time.substring(0, time.indexOf("来源"));
+                        //String stime = time.substring(0, time.indexOf("来源"));
+						String stime = time.substring(0, 10);
 						//System.out.println(stime+"  "+ssource +"   -- "+title);
 						Element content = docdetail.getElementById("UCAP-CONTENT");
 						Elements imgs = content.select("img");
