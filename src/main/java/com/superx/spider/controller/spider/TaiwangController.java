@@ -48,7 +48,6 @@ public class TaiwangController {
 			int indexof = pages.indexOf("-");
 			String pagesizes = pages.substring(indexof+1,indexof+2);
 			int pageSize = Integer.valueOf(pagesizes);
-			System.out.println(pageSize);
 			for(int i=1;i<=pageSize;i++){
 				Document docpage ;
 				docpage = Jsoup.connect("http://www.cenc.ac.cn/cenc/320429/4bfd7158-"+i+".html")
@@ -73,6 +72,7 @@ public class TaiwangController {
 					String ssource;
 					ssource = time.substring(time.indexOf("来源")+3,time.indexOf("【")).trim();
 					String stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("来源")).trim();
+					stime = stime.replace("年", "-").replace("月", "-").replace("日", "");
 					Element content =docdetail.getElementById("news_content");
 					Elements imgs = content.select("img");
 					  for (Element img : imgs) {

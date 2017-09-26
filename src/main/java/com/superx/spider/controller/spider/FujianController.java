@@ -76,14 +76,22 @@ public class FujianController {
                 	  }
                 	  String stime = trTime.text();
                 	  String time  =stime.substring(stime.indexOf("发布时间")+5,stime.indexOf(" ")).trim();
-                	  
+                	  String[] times = time.split("-");
+                	  String rtime = "";
+                	  for (String ti : times) {
+                		  if(ti.length()==1){
+                			  ti = 0+ti;
+                		  }
+                		  rtime =rtime+ ti +"-";
+                	  }
+                	  rtime = rtime.substring(0, rtime.length()-1);
                 	  	LinksWithBLOBs linksWithBLOBs = new LinksWithBLOBs();
 						linksWithBLOBs.setWebId(Constants.fujian);
 					    linksWithBLOBs.setTitle(trTitle.text());
 						linksWithBLOBs.setLink(url);
 						linksWithBLOBs.setSource("");
 						linksWithBLOBs.setAuthor("");
-						linksWithBLOBs.setTime(time);
+						linksWithBLOBs.setTime(rtime);
 						linksWithBLOBs.setSendcontent(html);
 						linksWithBLOBs.setIdent("0");
 						linksWithBLOBs.setStatus("0");

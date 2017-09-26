@@ -61,7 +61,7 @@ public class TianjinController {
           	  Element n_time=docdetail.getElementById("n_time");
           	  String ssource = n_from.text().substring(3, n_from.text().length()).trim();
           	  String sauthor = n_author.text().substring(3, n_author.text().length()).trim();
-          	  String stime = n_time.text().substring(3, n_time.text().length()).trim();
+          	  String stime = n_time.text().substring(3, 13).trim();
 //          	  System.out.println(ssource+" "+sauthor+" "+stime+" ");
           	  Element content=docdetail.getElementById("content");
           	  Elements imgs = content.select("img");

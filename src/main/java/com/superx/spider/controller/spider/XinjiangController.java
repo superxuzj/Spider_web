@@ -69,7 +69,9 @@ public class XinjiangController {
 						ssource = docdetail.getElementById("info_source").text();
 						String sauthor;
 						sauthor = docdetail.getElementById("info_author").text();
-						String stime = docdetail.getElementById("info_released_dtime").text();
+						String stime = docdetail.getElementById("info_released_dtime").text().trim();
+						stime = stime.substring(0, 10);
+						System.out.println(stime);
 						Element content =docdetail.getElementById("info_content");
 						/*Elements imgs = content.select("img"); 图片链接不用更改
 						  for (Element img : imgs) {

@@ -38,8 +38,8 @@ public class XizangController {
 		int count = 0;
 		Set<String> urlSet = linksService.selectLinksListByWebId(Constants.xizang);
 		List<LinksWithBLOBs> list = new ArrayList<LinksWithBLOBs>(); 
-		try {
-			Document doc = Jsoup.connect("http://www.xizdzj.gov.cn/pageUI_showNewsList.action?pid=200103&mid=101")
+		try {                             
+			Document doc = Jsoup.connect("http://www.xizdzj.gov.cn/action/pageUI_showNewsList.action?mid=203")
 								.header("User-Agent", Constants.HEAD)
 								.timeout(Constants.TIMEOUT)
 								.get();
@@ -47,7 +47,7 @@ public class XizangController {
 			int pageSize = pages.size();
 			for(int i=1;i<=pageSize;i++){
 				Document docpage ;
-				docpage = Jsoup.connect("http://www.xizdzj.gov.cn/pageUI_showNewsList.action?currentPage="+i+"&mid=101")
+				docpage = Jsoup.connect("http://www.xizdzj.gov.cn/action/pageUI_showNewsList.action?currentPage="+i+"&mid=203")
 								.header("User-Agent", Constants.HEAD)	  
 								.timeout(Constants.TIMEOUT).get();
 				
@@ -67,8 +67,7 @@ public class XizangController {
 						//System.out.println(time);
 						String ssource = time.substring(time.indexOf("新闻来源")+5,time.length());
 						
-						String stime = time.substring(time.indexOf("日期")+3,time.indexOf("新闻"));
-						
+						String stime = time.substring(time.indexOf("日期")+3,time.indexOf("新闻")).trim();
 						Element content =docdetail.select("div.pageText_content").first();
 						Elements imgs = content.select("img");
 						  for (Element img : imgs) {

@@ -80,7 +80,8 @@ public class ShxiController {
 						String time = telement.text().replace("\u00A0","");
 						String ssource = time.substring(time.indexOf("来源")+3,time.indexOf("作者"));
 						
-						String stime = time.substring(3,time.indexOf("来源"));
+						//String stime = time.substring(3,time.indexOf("来源"));
+						String stime = time.substring(3,13);
 						String sauthor = time.substring(time.indexOf("作者")+3, time.length()).trim();
 						Element content =docdetail.select("div.lv_article").first();
 						Elements imgs = content.select("img");
@@ -134,7 +135,8 @@ public class ShxiController {
 						Element telement = docdetail.select("div.lv_title p").first();
 						String time = telement.text().replace("\u00A0","");
 						String ssource = time.substring(time.indexOf("来源")+3,time.indexOf("作者"));
-						String stime = time.substring(3,time.indexOf("来源"));
+						//String stime = time.substring(3,time.indexOf("来源"));
+						String stime = time.substring(3,13);
 						String sauthor = time.substring(time.indexOf("作者")+3, time.length()).trim();
 						Element content =docdetail.select("div.lv_article").first();
 						/*Elements imgs = content.select("img");
@@ -189,7 +191,8 @@ public class ShxiController {
 						//System.out.println(time);
 						String ssource = time.substring(time.indexOf("来源")+3,time.indexOf("作者"));
 						
-						String stime = time.substring(3,time.indexOf("来源"));
+						//String stime = time.substring(3,time.indexOf("来源"));
+						String stime = time.substring(3,13);
 						String sauthor = time.substring(time.indexOf("作者")+3, time.length()).trim();
 						Element content =docdetail.select("div.lv_article").first();
 						Elements imgs = content.select("img");

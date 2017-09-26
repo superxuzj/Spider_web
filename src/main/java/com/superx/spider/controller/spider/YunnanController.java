@@ -70,6 +70,7 @@ public class YunnanController {
 						String time = telement.text();
 						String ssource = time.substring(time.indexOf("来源")+3,time.indexOf("作者")).trim();
 						String stime = time.substring(time.indexOf("时间")+3,time.indexOf("阅读次数")).trim();
+						stime = stime.replace("年", "-").replace("月", "-").replace("日", "");
 						String sauthor = time.substring(time.indexOf("作者")+3, time.indexOf("时间")).trim();
 						Element content = docdetail.getElementById("xilan_cont");
 						Elements imgs = content.select("img");

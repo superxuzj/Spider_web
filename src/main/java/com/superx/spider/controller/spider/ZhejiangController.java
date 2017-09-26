@@ -68,6 +68,8 @@ public class ZhejiangController {
 					String time = docdetail.select("span.update").first().text();
 					//ssource = time.substring(time.indexOf("来源")+3,time.indexOf("发布者")).trim().replace("\u00A0","");
 					stime = time.substring(time.indexOf("最后更新")+5,time.length()).trim().replace("\u00A0","");
+					stime = stime.replace("年", "-").replace("月", "-").replace("日", "").trim();
+					stime = stime.substring(0, 10);
 					Element content = docdetail.getElementById("article_content");
 					scontent = content.text();
 					Elements imgs = content.select("img");

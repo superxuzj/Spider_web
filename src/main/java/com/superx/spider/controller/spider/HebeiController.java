@@ -83,7 +83,7 @@ public class HebeiController {
 						linksWithBLOBs.setLink(url);
 						linksWithBLOBs.setSource(ssource);
 						linksWithBLOBs.setAuthor("");
-						linksWithBLOBs.setTime(stime);
+						linksWithBLOBs.setTime(stime.trim());
 						linksWithBLOBs.setSendcontent(html);
 						linksWithBLOBs.setIdent("0");
 						linksWithBLOBs.setStatus("0");
