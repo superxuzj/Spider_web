@@ -68,6 +68,7 @@ public class XizangController {
 						String ssource = time.substring(time.indexOf("新闻来源")+5,time.length());
 						
 						String stime = time.substring(time.indexOf("日期")+3,time.indexOf("新闻")).trim();
+						stime = stime.substring(0, 10);
 						Element content =docdetail.select("div.pageText_content").first();
 						Elements imgs = content.select("img");
 						  for (Element img : imgs) {

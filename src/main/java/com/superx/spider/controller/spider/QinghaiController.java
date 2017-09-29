@@ -151,9 +151,9 @@ public class QinghaiController {
 					Element telement = docdetail.select("div.wzbjxx").first();
 					String time = telement.text();
 //					System.out.println(time);
-					String ssource;
-					ssource = time.substring(time.indexOf("来源")+3,time.indexOf("阅读")).trim();
-					String stime = time.substring(time.indexOf("发布日期")+5,time.indexOf("来源")).trim();
+					String ssource  = time.substring(time.indexOf("来源")+3,time.indexOf("阅读")).trim();
+					String stime = time.substring(time.indexOf("发布日期")+5,time.indexOf("作者")).trim();
+					String sauthor = time.substring(time.indexOf("作者")+3,time.indexOf("来源")).trim();
 					Element content =docdetail.getElementById("J_content");
 					Elements imgs = content.select("img");
 					  for (Element img : imgs) {
@@ -162,7 +162,6 @@ public class QinghaiController {
 						//System.out.println(img.attr("src"));
 					  }
 					String html = content.html();
-					String sauthor="";
 					LinksWithBLOBs linksWithBLOBs = new LinksWithBLOBs();
 					linksWithBLOBs.setWebId(Constants.qinghai);
 				    linksWithBLOBs.setTitle(title);
@@ -205,9 +204,9 @@ public class QinghaiController {
 											.get();
 				Element telement = docdetail.select("div.wzbjxx").first();
 				String time = telement.text();
-				String ssource;
-				ssource = time.substring(time.indexOf("来源")+3,time.indexOf("阅读")).trim();
-				String stime = time.substring(time.indexOf("发布日期")+5,time.indexOf("来源")).trim();
+				String ssource  = time.substring(time.indexOf("来源")+3,time.indexOf("阅读")).trim();
+				String stime = time.substring(time.indexOf("发布日期")+5,time.indexOf("作者")).trim();
+				String sauthor = time.substring(time.indexOf("作者")+3,time.indexOf("来源")).trim();
 				Element content =docdetail.getElementById("J_content");
 				Elements imgs = content.select("img");
 				  for (Element img : imgs) {
@@ -216,7 +215,6 @@ public class QinghaiController {
 					 //System.out.println(img.attr("src"));
 				  }
 				String html = content.html();
-				String sauthor="";
 				LinksWithBLOBs linksWithBLOBs = new LinksWithBLOBs();
 				linksWithBLOBs.setWebId(Constants.qinghai);
 			    linksWithBLOBs.setTitle(title);
