@@ -48,7 +48,7 @@ import com.superx.spider.controller.spider.ZhejiangController;
 
 @Controller
 public class LinksController {
-	
+
 	@Autowired
 	private BeijingController beijingController;
 
@@ -150,58 +150,233 @@ public class LinksController {
 
 	@Autowired
 	private ZaihaifangyuController zaihaifangyuController;
-	
+
 	@Autowired
 	private DizhenjuController dizhenjuController;
-	
+
 	@RequestMapping("spider/all")
-    public String index(HttpServletRequest request, 
-    		HttpServletResponse response,Model model) {
-		System.out.println(new Date()+" spider all");
-		beijingController.index(request, response, model);
-		tianjinController.index(request, response, model);
-		hebeiController.index(request, response, model);
-		shanxiController.index(request, response, model);
-		liaoningController.index(request, response, model);
-		jilinController.index(request, response, model);
-		shanghaiController.index(request, response, model);
-		jiangsuController.index(request, response, model);
-		zhejiangController.index(request, response, model);
-		anhuiController.index(request, response, model);
-		fujianController.index(request, response, model);
-		jiangxiController.index(request, response, model);
-		shandongController.index(request, response, model);
-		henanController.index(request, response, model);
-		hubeiController.index(request, response, model);
-		hunanController.index(request, response, model);
-		guangdongController.index(request, response, model);
-		guangxiController.index(request, response, model);
-		hainanController.index(request, response, model);
-		chongqingController.index(request, response, model);
-		sichuanController.index(request, response, model);
-		guizhouController.index(request, response, model);
-		yunnanController.index(request, response, model);
-		xizangController.index(request, response, model);
-		shxiController.index(request, response, model);
-		gansuController.index(request, response, model);
-		qinghaiController.index(request, response, model);
-		ningxiaController.index(request, response, model);
-		xinjiangController.index(request, response, model);
-		neimengguController.index(request, response, model);
-		heilongjiangController.index(request, response, model);
-		yingjisoujiuController.index(request, response, model);
-		taiwangController.index(request, response, model);
-		zaihaifangyuController.index(request, response, model);
-		dizhenjuController.index(request, response, model);
+	public String index(HttpServletRequest request,
+			HttpServletResponse response, Model model) {
+		System.out.println(new Date() + " spider all");
+		try {
+			beijingController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO: handle exception
+			c.printStackTrace();
+		}
+
+		try {
+			tianjinController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			hebeiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			shanxiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			liaoningController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			jilinController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			shanghaiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			jiangsuController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			zhejiangController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			anhuiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			fujianController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			jiangxiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			shandongController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			henanController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			hubeiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			hunanController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			guangdongController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			guangxiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			hainanController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			chongqingController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			sichuanController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			guizhouController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			yunnanController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			xizangController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			shxiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			gansuController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			qinghaiController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			ningxiaController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			xinjiangController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			neimengguController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			heilongjiangController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			yingjisoujiuController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			taiwangController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			zaihaifangyuController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
+		try {
+			dizhenjuController.index(request, response, model);
+		} catch (Exception c) {
+			// TODO Auto-generated catch block
+			c.printStackTrace();
+		}
 		System.out.println(new Date());
 		return "redirect:/";
-    }
-	
-	
-	//定时任务 判断结束时间业务状态
-		public void runTask() {
-			
-			System.out.println("11111111");
-		}
-	
+	}
+
+	// 定时任务 判断结束时间业务状态
+	public void runTask() {
+
+		System.out.println("11111111");
+	}
+
 }

@@ -84,21 +84,20 @@ public class BeijingController {
 								continue;
 //								e.printStackTrace();
 							}
-							String time = docdetail.select("div.detail_about").first().text();
-							ssource = time.substring(time.indexOf("来源")+3,time.indexOf("发布者")).trim().replace("\u00A0","");
-							stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("浏览量")).trim().replace("\u00A0","");
-							
-							stime = stime.replace("年", "-").replace("月", "-").replace("日", "");
-							System.out.println(stime);
-							Element contentElement =  docdetail.select("div.detail_inner").first();
-							/*Elements imgs = contentElement.select("img");没有图片
-							for (Element img : imgs) {
-								String src = img.attr("src");
-								//img.attr("src", "http://www.cea.gov.cn"+src);
-							}*/
-							
-							html = contentElement.html();
-							content = contentElement.text().replace("\u00A0","");
+							try {
+								String time = docdetail.select("div.detail_about").first().text();
+								ssource = time.substring(time.indexOf("来源")+3,time.indexOf("发布者")).trim().replace("\u00A0","");
+								stime = time.substring(time.indexOf("发布时间")+5,time.indexOf("浏览量")).trim().replace("\u00A0","");
+								
+								stime = stime.replace("年", "-").replace("月", "-").replace("日", "");
+								System.out.println(stime);
+								Element contentElement =  docdetail.select("div.detail_inner").first();
+								html = contentElement.html();
+								content = contentElement.text().replace("\u00A0","");
+							} catch (Exception c) {
+								// TODO Auto-generated catch block
+								continue;
+							}
 						}else{
 							url = element.attr("href");
 							if(urlSet.contains(url)){
